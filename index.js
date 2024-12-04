@@ -11,12 +11,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: '2MB' }));
 
 var corsOptions = {
-    "origin": `http://localhost:3000`,
+    "origin": `*`,
     "methods": "GET,PUT,POST,DELETE",
     "preflightContinue": true,
     "optionsSuccessStatus": 204
 }
-
 
 app.use(cors(corsOptions));
 
@@ -27,4 +26,3 @@ app.use('/api/v1/employees', employeeRouter);
 app.listen(port, () => {
     console.log(`server running at ${host}:${port}/api/v1/employees`);
 });
-
