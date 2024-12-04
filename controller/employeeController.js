@@ -4,7 +4,6 @@ async function createEmployee(request, response) {
     try {
         const payload = request.body;
         const data = await employeeModel.insertEmployee(payload);
-        data.updatedAt = moment().
         response.status(201).json(data);
     }
     catch (error) {
